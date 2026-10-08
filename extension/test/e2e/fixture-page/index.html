@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Gaveta fixture chat app</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: system-ui, sans-serif;
+        display: flex;
+        height: 100vh;
+      }
+      nav {
+        width: 220px;
+        background: #f3f4f6;
+        padding: 16px;
+        box-sizing: border-box;
+      }
+      main {
+        flex: 1;
+        padding: 24px;
+      }
+      a {
+        display: block;
+        padding: 6px 0;
+        color: #111;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <nav data-gaveta-mount>
+      <strong>Fixture chats</strong>
+      <a href="#/c/mock-0001">Sourdough starter troubleshooting</a>
+      <a href="#/c/mock-0002">Rust borrow checker explained</a>
+      <a href="#/c/mock-0003">Trip to Lisbon in March</a>
+    </nav>
+    <main>
+      <h1>Fixture chat app</h1>
+      <p>This page stands in for chatgpt.com. The Gaveta panel should appear on the right.</p>
+      <p id="route">Route: none</p>
+    </main>
+    <script>
+      const route = document.getElementById('route');
+      const render = () => {
+        route.textContent = 'Route: ' + (location.hash || 'none');
+      };
+      addEventListener('hashchange', render);
+      render();
+    </script>
+  </body>
+</html>
