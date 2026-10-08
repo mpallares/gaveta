@@ -1,0 +1,11 @@
+@import 'tailwindcss';
+@source "../../";
+
+:root {
+  color-scheme: light dark;
+}
+body {
+  margin: 0;
+  width: 320px;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+}
