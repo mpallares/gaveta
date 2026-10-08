@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "adapters": {
+    "chatgpt": { "enabled": true },
+    "claude": { "enabled": true },
+    "gemini": { "enabled": false },
+    "grok": { "enabled": false },
+    "mock": { "enabled": true }
+  },
+  "notice": ""
+}
