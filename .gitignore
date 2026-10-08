@@ -1,0 +1,14 @@
+node_modules
+.output
+.wxt
+dist
+.next
+test-results
+playwright-report
+*.log
+.DS_Store
+.env*
+extension/test/fixtures/chatgpt/*.json
+!extension/test/fixtures/chatgpt/.gitkeep
+extension/test/fixtures/claude/*.json
+!extension/test/fixtures/claude/.gitkeep

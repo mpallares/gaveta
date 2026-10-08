@@ -1,0 +1,10 @@
+node_modules
+.output
+.wxt
+dist
+.next
+pnpm-lock.yaml
+test-results
+playwright-report
+extension/public/icon
+web/next-env.d.ts
