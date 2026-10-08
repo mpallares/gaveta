@@ -1,0 +1,96 @@
+{
+  "conversations": [
+    {
+      "id": "mock-0001",
+      "title": "Sourdough starter troubleshooting",
+      "createdAt": 1735730000000,
+      "updatedAt": 1735733600000,
+      "messages": [
+        {
+          "role": "user",
+          "text": "My sourdough starter smells like acetone. Is it dead?",
+          "ts": 1735730000000
+        },
+        {
+          "role": "assistant",
+          "text": "Not dead, just hungry. An acetone or nail-polish smell means the yeast ran out of food. Discard most of it and feed with equal parts flour and water twice a day for two days.",
+          "ts": 1735730060000
+        },
+        { "role": "user", "text": "Should I use rye flour for the feeding?", "ts": 1735733500000 },
+        {
+          "role": "assistant",
+          "text": "Rye helps because it has more minerals and wild yeast on the bran. A 50/50 rye and bread flour mix is a good recovery diet.",
+          "ts": 1735733600000
+        }
+      ]
+    },
+    {
+      "id": "mock-0002",
+      "title": "Rust borrow checker explained",
+      "createdAt": 1736000000000,
+      "updatedAt": 1736003600000,
+      "messages": [
+        {
+          "role": "user",
+          "text": "Why does the Rust borrow checker complain about mutable aliasing here?",
+          "ts": 1736000000000
+        },
+        {
+          "role": "assistant",
+          "text": "You hold an immutable reference from `iter()` while calling `push`, which needs `&mut self`. Collect the indices first, then mutate.",
+          "ts": 1736000090000
+        }
+      ]
+    },
+    {
+      "id": "mock-0003",
+      "title": "Trip to Lisbon in March",
+      "createdAt": 1736500000000,
+      "updatedAt": 1736503600000,
+      "messages": [
+        {
+          "role": "user",
+          "text": "Plan three days in Lisbon with pastel de nata stops.",
+          "ts": 1736500000000
+        },
+        {
+          "role": "assistant",
+          "text": "Day one: Alfama and Manteigaria. Day two: Belém and the original Pastéis de Belém. Day three: LX Factory and a day trip to Sintra.",
+          "ts": 1736500120000
+        }
+      ]
+    },
+    {
+      "id": "mock-0004",
+      "title": "SQL window functions cheat sheet",
+      "createdAt": 1737000000000,
+      "updatedAt": 1737003600000,
+      "messages": [
+        {
+          "role": "user",
+          "text": "Give me the difference between ROW_NUMBER, RANK and DENSE_RANK.",
+          "ts": 1737000000000
+        },
+        {
+          "role": "assistant",
+          "text": "ROW_NUMBER is always unique. RANK leaves gaps after ties. DENSE_RANK does not leave gaps.",
+          "ts": 1737000030000
+        }
+      ]
+    },
+    {
+      "id": "mock-0005",
+      "title": "Untitled",
+      "createdAt": 1737500000000,
+      "updatedAt": 1737503600000,
+      "messages": [
+        { "role": "user", "text": "Translate 'gaveta' from Portuguese.", "ts": 1737500000000 },
+        {
+          "role": "assistant",
+          "text": "Gaveta means drawer, as in a desk drawer.",
+          "ts": 1737500010000
+        }
+      ]
+    }
+  ]
+}
