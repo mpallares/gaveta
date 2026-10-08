@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm lint
+      - run: pnpm typecheck
+      - run: pnpm test
+      - run: pnpm build
+      - name: Assert production manifest only touches the two vendor hosts
+        run: |
+          node -e "
+            const m = require('./extension/.output/chrome-mv3/manifest.json');
+            const allowed = ['https://chatgpt.com/*','https://claude.ai/*'];
+            const hosts = [...(m.host_permissions||[]), ...m.content_scripts.flatMap(c => c.matches)];
+            const bad = hosts.filter(h => !allowed.includes(h));
+            if (bad.length) { console.error('Unexpected hosts:', bad); process.exit(1); }
+            if (m.permissions.some(p => p.includes('<all_urls>'))) process.exit(1);
+            console.log('manifest ok', hosts);
+          "
+      - name: Install Playwright Chromium
+        run: pnpm --filter @gaveta/extension exec playwright install --with-deps chromium
+      - run: pnpm test:e2e
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: playwright-report
+          path: extension/test-results
+          retention-days: 7
